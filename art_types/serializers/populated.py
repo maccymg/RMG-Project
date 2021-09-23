@@ -3,4 +3,4 @@ from ..serializers.common import ArtTypeSerializer
 
 class PopulatedArtTypeSerializer(ArtTypeSerializer):
 
-    art = PictureSerializer(many=True)
+    art = ArtSerializer(many=True)

@@ -8,6 +8,8 @@ django = "*"
 pylint = "*"
 psycopg2-binary = "*"
 djangorestframework = "*"
+cloudinary = "*"
+dj3-cloudinary-storage = "*"
 
 [dev-packages]
 
