@@ -10,7 +10,7 @@ class ArtTypeListView(APIView):
 
     def get(self, _request):
         art_types = ArtType.objects.all()
-        serialized_arts_types = PopulatedArtsTypeSerializer(art_types, many=True)
+        serialized_arts_types = PopulatedArtTypeSerializer(art_types, many=True)
         return Response(serialized_arts_types.data, status=status.HTTP_200_OK)
 
 class ArtTypeDetailView(APIView):
