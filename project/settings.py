@@ -14,9 +14,9 @@ import django_on_heroku
 
 import os
 from pathlib import Path
-from dotenv import load_dotenv
-import dj_database_url
-load_dotenv()
+# from dotenv import load_dotenv
+# import dj_database_url
+# load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -91,25 +91,25 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'hots-art-db',
-#         'HOST': 'localhost',
-#         'PORT': 5432
-#     }
-# }
-
-DATABASES = {}
-if str(os.getenv('ENVIRONMENT')) == 'development':
-    DATABASES['default'] =  {
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'hots-art-db',
         'HOST': 'localhost',
         'PORT': 5432
     }
-else:
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+}
+
+# DATABASES = {}
+# if str(os.getenv('ENVIRONMENT')) == 'development':
+#     DATABASES['default'] =  {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'hots-art-db',
+#         'HOST': 'localhost',
+#         'PORT': 5432
+#     }
+# else:
+#     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
