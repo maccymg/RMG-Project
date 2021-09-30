@@ -10,7 +10,7 @@ function Art() {
 
   // const [fullScreen, setFullScreen] = React.useState(false)
   const [pictureFull, setPitcureFull] = React.useState(null)
-  const [picMargin, setPicMargin] = React.useState(0)
+  const [picPadding, setPicPadding] = React.useState(0)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -26,18 +26,16 @@ function Art() {
   }, [])
 
   const handleImage = (e) => {
-    if (pictureFull === null) {
-      const main = document.getElementById('main')
-      main.classList.add('opacity')
-      // console.log(window.screen.height)
-      const imageWidth = window.screen.width / 100 * 75
-      // console.log(imageWidth)
-      const imageHeight = imageWidth / 1.3333333
-      // console.log(imageHeight)
-      const padding = (window.screen.height - imageHeight) / 2
-      console.log(padding)
-      setPicMargin(padding)
-      setPitcureFull(e.target.src)
+    if (window.screen.width > 500) {
+      if (pictureFull === null) {
+        const main = document.getElementById('main')
+        main.classList.add('opacity')
+        const imageWidth = window.screen.width / 100 * 75
+        const imageHeight = imageWidth / 1.3333333
+        const padding = (window.screen.height - imageHeight) / 2
+        setPicPadding(padding)
+        setPitcureFull(e.target.src)
+      }
     }
   }
 
@@ -52,12 +50,12 @@ function Art() {
   return (
     <>
       {pictureFull ?
-        <>
+        <div className="view-container">
           <ImCross className="cross" onClick={removeImage}/>
-          <div className="fullscreen" style={{ padding: `${picMargin}px 0px` }}>
+          <div className="fullscreen" style={{ padding: `${picPadding}px 0px` }}>
             <img src={pictureFull} className="fullscreen-image"></img>
           </div>
-        </>
+        </div>
         :
         <div></div>
       }

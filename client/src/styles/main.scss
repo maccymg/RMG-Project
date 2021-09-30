@@ -150,13 +150,13 @@ html {
 
 .quote {
   margin-top: 40px;
-  font-size: 25px;
+  font-size: 20px;
   color: white;
 }
 
 .author {
   font-style: italic;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 40px;
   color: white;
 }
@@ -188,19 +188,25 @@ html {
   max-height: 100%;
 }
 
-
-@media only screen and (max-width: 798px) {
+@media only screen and (max-width: 1024px) {
   .grid-item {
     width: calc(50% - 20px);
   }
+}
+
+
+@media only screen and (max-width: 798px) {
   .header {
     font-size: 40px;
   }
   .home-image-container {
     flex: 10;
   }
-  .fullscreen {
-    margin-top: 120px;
+  .quote {
+    font-size: 18px;
+  }
+  .author {
+    font-size: 12px;
   }
 }
 
@@ -218,5 +224,10 @@ html {
   .home-image-container {
     flex: 14
   }
-  
+  .quote {
+    font-size: 15px;
+  }
+  .author {
+    font-size: 10px;
+  }
 }
