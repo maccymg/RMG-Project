@@ -88,14 +88,25 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'hots-art-db',
+#         'HOST': 'localhost',
+#         'PORT': 5432
+#     }
+# }
+
+DATABASES = {}
+if str(os.getenv('ENVIRONMENT')) == 'development':
+    DATABASES['default'] =  {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'hots-art-db',
         'HOST': 'localhost',
         'PORT': 5432
     }
-}
+else:
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
